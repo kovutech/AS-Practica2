@@ -25,8 +25,13 @@ public class ClientBean {
         client.add(clientAux);
     }
 
-    public void deleteClient(Client clientAux) {
-        client.remove(clientAux);
+    public void deleteClient(String id) {
+        //for(Product p: contents){
+        for (int i = 0; i < client.size(); i++) {
+            if (client.get(i).getId().equals(id)) {          
+                client.remove(i);
+            }
+        }
     }
 
     public List<Client> getClientList() {

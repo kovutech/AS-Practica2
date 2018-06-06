@@ -4,14 +4,17 @@
     Author     : Jorge
 --%>
 
+<%@page import="com.as.practica2.ClientLevel"%>
+<%@page import="com.as.practica2.Policy"%>
+<%@page import="com.as.practica2.PolicyBean"%>
 <%@page import="com.as.practica2.SellRecomendation"%>
+<%@page import="com.as.practica2.CalculateDniLetter"%>
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="javax.ejb.EJB"%>
 <%@page import="java.lang.String"%>
 <%@page import="java.util.Arrays"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="frontController.Policy"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%
@@ -29,22 +32,20 @@
         <title>Torniquete seguros s.a.</title>
     </head>
     <body>
-        <h1 class="title">Torniquete seguros s.a.</h1>
+        <jsp:include page="header.jsp"/>
         <%
-            out.print("<FORM action='FrontController' >");
-            out.print("<INPUT type='hidden' name='command' value='Logout'>");
-            out.print("<INPUT type='submit' value='Cerrar sesión' class='botonLogout'>");
-            out.print("</FORM><BR>");
+            ClientLevel clientLevel = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/ClientLevel");
+            SellRecomendation sellRecomendation = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/SellRecomendation");
+            CalculateDniLetter calculateDniLetter = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/CalculateDniLetter");
 
-            String user = (String) session.getAttribute("user");
+            
             List<String> clientData = new ArrayList<String>();
             clientData = (ArrayList) session.getAttribute("clientData");
-            out.print("<h3>Agente: " + user + "</h3>");
-            out.print("<h2>Cliente: " + clientData.get(0) + " " + clientData.get(1) + " - Identificador: " + clientData.get(2) + "</h2>");
+            PolicyBean aux = (PolicyBean) session.getAttribute("policyList");
+            List<Policy> policies = aux.getPolicyList(clientData.get(2));
 
-            SellRecomendation sellRecomendation = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/SellRecomendation");
-
-            List<Policy> policies = (ArrayList) session.getAttribute("policies");
+            
+            out.print("<h2>Cliente: " + clientData.get(0) + " " + clientData.get(1) + " - Identificador: " + clientData.get(2) + calculateDniLetter.getDniLetter(clientData.get(2)) + " - Nivel de cliente: " + clientLevel.getClientLevel(policies.size()) + "</h2>");
             List<String> stringPolicies = new ArrayList<String>();
 
             for (Policy elem : policies) {
@@ -62,6 +63,8 @@
                 out.print("<TD><img src='./img/" + elem + ".png' height='75' width='75'></TD>");
                 out.print("</TR>");
             }
+
         %>
+        <jsp:include page="footer.jsp"/>
     </body>
 </html>
