@@ -25,9 +25,9 @@ public class PolicyBean {
 
     public void addPolicy(String id, Policy policyAux) {
         List<Policy> aux;
-        if (map.containsKey(id)){
+        if (map.containsKey(id)) {
             aux = map.get(id);
-        }else{
+        } else {
             aux = new ArrayList<Policy>();
         }
         aux.add(policyAux);
@@ -46,7 +46,12 @@ public class PolicyBean {
     }
 
     public List<Policy> getPolicyList(String id) {
-        List<Policy> aux = map.get(id);
+        List<Policy> aux;
+        if (map.containsKey(id)) {
+            aux = map.get(id);
+        } else {
+            aux = new ArrayList<Policy>();
+        }
         return aux;
     }
 }

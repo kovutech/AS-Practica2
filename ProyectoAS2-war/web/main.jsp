@@ -56,10 +56,10 @@
                 <TR>
                 <INPUT type='hidden' name='command' value='Main'>
                 <INPUT type='hidden' name='addClient' value='1'>
-                <TD><INPUT type='text' name='dni' value='' placeholder='Dni' ></TD>
+                <TD><INPUT type='text' pattern='\d{8}' name='dni' value='' placeholder='Dni' maxlength='8'></TD>
                 <TD><INPUT type='text' name='nombre' value='' placeholder='Nombre'></TD>
                 <TD><INPUT type='text' name='apellido' value='' placeholder='Apellido'></TD>
-                <TD><INPUT type='text' name='telefono' value='' placeholder='Telefono'></TD>
+                <TD><INPUT type='text' pattern='\d{9}' name='telefono' value='' placeholder='Telefono' maxlength='9'></TD>
                 <TD><INPUT type='submit' value='Añadir' class='botonTable'></TD>
                 </TR>
             </TABLE>
@@ -82,6 +82,7 @@
                 out.print("<TD>" + elem.getTelephone() + "</TD>");
                 out.print("<FORM action='FrontController' method='post'>");
                 out.print("<INPUT type='hidden' name='command' value='ClientFile'>");
+                out.print("<INPUT type='hidden' name='listPolicy' value='1'>");
                 out.print("<INPUT type='hidden' name='dni' value='" + elem.getId() + "'>");
                 out.print("<INPUT type='hidden' name='nombre' value='" + elem.getName() + "'>");
                 out.print("<INPUT type='hidden' name='apellido' value='" + elem.getSurame() + "'>");

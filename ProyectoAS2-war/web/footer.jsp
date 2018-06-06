@@ -8,6 +8,15 @@
 <!DOCTYPE html>
 <html>
     <body>
-        <h1>Pie de página</h1>
+        <div class='footer'>
+            <table border='1'>
+                <tr>
+                    <td>Asignatura:</td><td>Arquitectura del Software</td><td>Alumno:</td><td>Jorge Fernández Molines</td>
+                </tr>
+                <tr>
+                    
+                </tr>
+        </div>
+
     </body>
 </html>
