@@ -22,10 +22,6 @@
         r.forward(request, response);
     }
     
-    //if (session.getAttribute("clientData") != null) {
-    //    session.removeAttribute("clientData");
-    //}
-    
     if (session.getAttribute("clientList") == null) {
         try {
             ClientBean clientStatBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/ClientBean");
@@ -81,7 +77,7 @@
                 out.print("<TD>" + elem.getSurame() + "</TD>");
                 out.print("<TD>" + elem.getTelephone() + "</TD>");
                 out.print("<FORM action='FrontController' method='post'>");
-                out.print("<INPUT type='hidden' name='command' value='ClientFile'>");
+                out.print("<INPUT type='hidden' name='command' value='Policies'>");
                 out.print("<INPUT type='hidden' name='listPolicy' value='1'>");
                 out.print("<INPUT type='hidden' name='dni' value='" + elem.getId() + "'>");
                 out.print("<INPUT type='hidden' name='nombre' value='" + elem.getName() + "'>");

@@ -38,13 +38,11 @@
             SellRecomendation sellRecomendation = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/SellRecomendation");
             CalculateDniLetter calculateDniLetter = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/CalculateDniLetter");
 
-            
             List<String> clientData = new ArrayList<String>();
             clientData = (ArrayList) session.getAttribute("clientData");
             PolicyBean aux = (PolicyBean) session.getAttribute("policyList");
             List<Policy> policies = aux.getPolicyList(clientData.get(2));
 
-            
             out.print("<h2>Cliente: " + clientData.get(0) + " " + clientData.get(1) + " - Identificador: " + clientData.get(2) + calculateDniLetter.getDniLetter(clientData.get(2)) + " - Nivel de cliente: " + clientLevel.getClientLevel(policies.size()) + "</h2>");
             List<String> stringPolicies = new ArrayList<String>();
 
@@ -65,6 +63,10 @@
             }
 
         %>
+        <FORM action='FrontController'>
+            <INPUT type='hidden' name='command' value='ToPolicies'>
+            <INPUT type='submit' value='Volver' class='boton'>
+        </FORM>
         <jsp:include page="footer.jsp"/>
     </body>
 </html>

@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Jorge
  */
-public class ClientFile extends FrontCommand {
+public class Policies extends FrontCommand {
 
     public void addClient() {
         if (request.getParameter("addPolicy") != null) {
@@ -37,7 +37,7 @@ public class ClientFile extends FrontCommand {
         try {
             newClientSession();
             addClient();
-            forward("/clientFile.jsp");
+            forward("/policies.jsp");
         } catch (ServletException | IOException ex) {
             Logger.getLogger(UnknownCommand.class.getName()).log(Level.SEVERE, null, ex);
         }
