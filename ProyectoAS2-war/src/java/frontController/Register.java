@@ -32,7 +32,8 @@ public class Register extends FrontCommand {
     public void addUser() {
         HttpSession session = request.getSession(true);
         UserBean userList = (UserBean) session.getAttribute("userList");
-        userList.addUser(request.getParameter("name"), new User(request.getParameter("name"), request.getParameter("pass"), request.getParameter("email")));
+        System.out.println("Añadir: " + request.getParameter("user") + " - " + request.getParameter("pass") + " - " + request.getParameter("email"));
+        userList.addUser(request.getParameter("user"), new User(request.getParameter("user"), request.getParameter("pass"), request.getParameter("email")));
         session.setAttribute("userList", userList);
         session.removeAttribute("user");
     }

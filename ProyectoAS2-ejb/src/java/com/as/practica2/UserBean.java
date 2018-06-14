@@ -38,6 +38,20 @@ public class UserBean {
         map.put(user, aux);
     }
 
+    public boolean checkUserLogin(String auxUser, String auxPass) {
+        String pass = "";
+        if (map.containsKey(auxUser)) {
+            pass = map.get(auxUser).get(0).getPass();
+            System.out.println(pass);
+            if (!pass.equals(auxPass)) {
+                return false;
+            }
+        } else {
+            return false;
+        }
+        return true;
+    }
+
     public List<User> getUserList(String user) {
         List<User> aux;
         if (map.containsKey(user)) {

@@ -4,6 +4,7 @@
     Author     : Jorge
 --%>
 
+<%@page import="com.as.practica2.UserBean"%>
 <%@page import="com.as.practica2.Client"%>
 <%@page import="java.util.ResourceBundle.Control"%>
 <%@page import="java.util.logging.Level"%>
@@ -33,7 +34,6 @@
         } catch (NamingException ex) {
         }
     }
-
 %>
 <jsp:include page="headerA.jsp"/>
 <!DOCTYPE html>

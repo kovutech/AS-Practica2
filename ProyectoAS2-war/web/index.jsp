@@ -10,11 +10,11 @@
 <%@page import="com.as.practica2.UserBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
-    
+
     if (session.getAttribute("user") != null) {
         response.sendRedirect("main.jsp");
     }
-    
+
     if (session.getAttribute("userList") == null) {
         try {
             UserBean userBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/UserBean");
@@ -22,13 +22,11 @@
             UserBean userList = (UserBean) session.getAttribute("userList");
 
             userList.addUser("jorge", new User("jorge", "1234", "kovutech@gmail.com"));
-            
+
         } catch (NamingException ex) {
         }
     }
-    
-    
-     System.out.println();
+    System.out.println();
 %>
 <!DOCTYPE html>
 <html>
@@ -46,6 +44,7 @@
                 <input type="text" name="user" placeholder="User" class="inputText" required/><br><br>
                 <input type="password" name="pass" placeholder="Password" class="inputText" required/><br><br>
                 <input type="hidden" name="command" value="Main">
+                <input type="hidden" name="login" value="1">
                 <input type="submit" value="Login" class="boton"/>
             </form>
             <form action="FrontController" method='post'>
