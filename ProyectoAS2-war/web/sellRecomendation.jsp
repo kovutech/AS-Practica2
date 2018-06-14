@@ -32,7 +32,7 @@
         <title>Torniquete seguros s.a.</title>
     </head>
     <body>
-        <jsp:include page="header.jsp"/>
+        <jsp:include page="headerA.jsp"/>
         <%
             ClientLevel clientLevel = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/ClientLevel");
             SellRecomendation sellRecomendation = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/SellRecomendation");

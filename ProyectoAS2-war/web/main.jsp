@@ -21,13 +21,13 @@
         RequestDispatcher r = request.getRequestDispatcher("index.jsp");
         r.forward(request, response);
     }
-    
+
     if (session.getAttribute("clientList") == null) {
         try {
             ClientBean clientStatBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/ClientBean");
             session.setAttribute("clientList", clientStatBean);
             ClientBean clientList = (ClientBean) session.getAttribute("clientList");
-            
+
             clientList.addClient(new Client("00000000", "Jorge", "Fernandez", "555-555-555"));
             clientList.addClient(new Client("11111111", "Pedro", "Cabrera", "555-555-444"));
         } catch (NamingException ex) {
@@ -35,7 +35,7 @@
     }
 
 %>
-<jsp:include page="header.jsp"/>
+<jsp:include page="headerA.jsp"/>
 <!DOCTYPE html>
 <html>
     <head>
@@ -64,13 +64,13 @@
         <br>
         <%            CalculateDniLetter calculateDniLetter = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/CalculateDniLetter");
             ClientBean clientList = (ClientBean) session.getAttribute("clientList");
-            
+
             out.print("<TABLE border=1 class='center'>");
             out.print("<TR><TD colspan='6'>LISTADO DE CLIENTES</TD></TR>");
             out.print("<TR><TH><B>Dni</B></TH><TH><B>Nombre</B></TH><TH><B>Apellido</B></TH><TH><B>Teléfono</B></TH><TH><B>Ficha</B></TH><TH><B>Eliminar</B></TH></TR>");
-            
+
             for (Client elem : clientList.getClientList()) {
-                
+
                 out.print("<TR>");
                 out.print("<TD>" + elem.getId() + " " + calculateDniLetter.getDniLetter(elem.getId()) + "</TD>");
                 out.print("<TD>" + elem.getName() + "</TD>");
