@@ -5,9 +5,10 @@
 --%>
 
 <%@page import="javax.naming.NamingException"%>
-<%@page import="com.as.practica2.User"%>
+<%@page import="com.as.practica2.stateful.UserBean"%>
+<%@page import="com.as.practica2.object.User"%>
 <%@page import="javax.naming.InitialContext"%>
-<%@page import="com.as.practica2.UserBean"%>
+
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
 

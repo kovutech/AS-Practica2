@@ -5,8 +5,8 @@
  */
 package frontController;
 
-import com.as.practica2.Policy;
-import com.as.practica2.PolicyBean;
+import com.as.practica2.object.Policy;
+import com.as.practica2.stateful.PolicyBean;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -4,15 +4,15 @@
     Author     : Jorge
 --%>
 
-<%@page import="com.as.practica2.UserBean"%>
-<%@page import="com.as.practica2.Client"%>
+<%@page import="com.as.practica2.stateful.UserBean"%>
+<%@page import="com.as.practica2.stateful.ClientBean"%>
+<%@page import="com.as.practica2.stateless.CalculateDniLetter"%>
+<%@page import="com.as.practica2.object.Client"%>
 <%@page import="java.util.ResourceBundle.Control"%>
 <%@page import="java.util.logging.Level"%>
 <%@page import="java.util.logging.Logger"%>
 <%@page import="javax.naming.NamingException"%>
-<%@page import="com.as.practica2.ClientBean"%>
 <%@page import="javax.naming.InitialContext"%>
-<%@page import="com.as.practica2.CalculateDniLetter"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

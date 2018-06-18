@@ -1,4 +1,4 @@
-package com.as.practica2;
+package com.as.practica2.stateless;
 
 import java.util.ArrayList;
 import java.util.List;

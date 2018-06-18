@@ -5,9 +5,9 @@
  */
 package frontController;
 
-import com.as.practica2.ClientBean;
-import com.as.practica2.Client;
-import com.as.practica2.UserBean;
+import com.as.practica2.stateful.ClientBean;
+import com.as.practica2.object.Client;
+import com.as.practica2.stateful.UserBean;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

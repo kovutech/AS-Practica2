@@ -1,4 +1,4 @@
-package com.as.practica2;
+package com.as.practica2.object;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

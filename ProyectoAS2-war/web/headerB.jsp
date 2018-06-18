@@ -5,7 +5,6 @@
 --%>
 
 <%@page import="javax.naming.InitialContext"%>
-<%@page import="com.as.practica2.CalculateDniLetter"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>

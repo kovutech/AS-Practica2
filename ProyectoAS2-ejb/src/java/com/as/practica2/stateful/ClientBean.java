@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.as.practica2;
+package com.as.practica2.stateful;
 
+import com.as.practica2.object.Client;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;

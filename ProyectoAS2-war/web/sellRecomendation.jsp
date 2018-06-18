@@ -4,11 +4,11 @@
     Author     : Jorge
 --%>
 
-<%@page import="com.as.practica2.ClientLevel"%>
-<%@page import="com.as.practica2.Policy"%>
-<%@page import="com.as.practica2.PolicyBean"%>
-<%@page import="com.as.practica2.SellRecomendation"%>
-<%@page import="com.as.practica2.CalculateDniLetter"%>
+<%@page import="com.as.practica2.stateful.PolicyBean"%>
+<%@page import="com.as.practica2.stateless.SellRecomendation"%>
+<%@page import="com.as.practica2.stateless.CalculateDniLetter"%>
+<%@page import="com.as.practica2.stateless.ClientLevel"%>
+<%@page import="com.as.practica2.object.Policy"%>
 <%@page import="javax.naming.InitialContext"%>
 <%@page import="javax.ejb.EJB"%>
 <%@page import="java.lang.String"%>
