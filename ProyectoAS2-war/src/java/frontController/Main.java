@@ -24,7 +24,7 @@ public class Main extends FrontCommand {
         if (request.getParameter("addClient") != null) {
             HttpSession session = request.getSession(true);
             ClientBean clientList = (ClientBean) session.getAttribute("clientList");
-            clientList.addClient(new Client(request.getParameter("dni"), request.getParameter("nombre"), request.getParameter("apellido"), request.getParameter("telefono")));
+            clientList.addClient(new Client(request.getParameter("dni"), request.getParameter("nombre"), request.getParameter("apellido"), request.getParameter("telefono")),(String) session.getAttribute("user"));
             session.setAttribute("clientList", clientList);
         }
     }
@@ -34,24 +34,20 @@ public class Main extends FrontCommand {
         if (request.getParameter("deleteClient") != null) {
             HttpSession session = request.getSession(true);
             ClientBean clientList = (ClientBean) session.getAttribute("clientList");
-            clientList.deleteClient(request.getParameter("deleteClient"));
+            clientList.deleteClient(request.getParameter("deleteClient"),(String) session.getAttribute("user"));
             session.setAttribute("clientList", clientList);
         }
     }
 
     public boolean checkUser() {
         if (request.getParameter("login") != null) {
-            System.out.println("VENGO DEL LOGIN");
             HttpSession session = request.getSession(true);
             UserBean userList = (UserBean) session.getAttribute("userList");
-            System.out.println(request.getParameter("user") + " ---- " + request.getParameter("pass"));
             if (!userList.checkUserLogin(request.getParameter("user"), request.getParameter("pass"))) {
                 session.removeAttribute("user");
-                System.out.println("LOGIN MAL!");
                 return false;
             }
         }
-        System.out.println("LOGIN BIEN!");
         return true;
     }
 

@@ -27,7 +27,7 @@ public class Policies extends FrontCommand {
             HttpSession session = request.getSession(true);
             List<String> clientData = (List<String>) session.getAttribute("clientData");
             PolicyBean policyList = (PolicyBean) session.getAttribute("policyList");
-            policyList.addPolicy(clientData.get(2), new Policy(request.getParameter("id"), request.getParameter("type"), request.getParameter("from"), request.getParameter("to"), request.getParameter("payRange"), request.getParameter("price")));
+            policyList.addPolicy(clientData.get(2), new Policy(request.getParameter("id"), request.getParameter("type"), request.getParameter("from"), request.getParameter("to"), request.getParameter("payRange"), request.getParameter("price")),(String) session.getAttribute("user"));
             session.setAttribute("policyList", policyList);
         }
     }
@@ -45,14 +45,12 @@ public class Policies extends FrontCommand {
 
     public void newClientSession() {
         if (request.getParameter("listPolicy") != null) {
-            System.out.println("ESTOY ACTUALIZANDO CLIENTDATA!");
             HttpSession session = request.getSession(true);
             List<String> clientData = new ArrayList<String>();
             clientData.add(request.getParameter("nombre"));
             clientData.add(request.getParameter("apellido"));
             clientData.add(request.getParameter("dni"));
             session.setAttribute("clientData", clientData);
-            System.out.println(Arrays.toString(clientData.toArray()));
         }
     }
 }

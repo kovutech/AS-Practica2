@@ -4,6 +4,8 @@
     Author     : Jorge
 --%>
 
+<%@page import="com.as.practica2.singleton.StadisticsBean"%>
+<%@page import="com.as.practica2.singleton.LogBean"%>
 <%@page import="javax.naming.NamingException"%>
 <%@page import="com.as.practica2.stateful.UserBean"%>
 <%@page import="com.as.practica2.object.User"%>
@@ -27,7 +29,12 @@
         } catch (NamingException ex) {
         }
     }
-    System.out.println();
+    
+    LogBean logBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/LogBean");
+    logBean.addFuntion("index.jsp");
+
+    StadisticsBean estadisticasBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/StadisticsBean");
+    estadisticasBean.addPage("index.jsp");
 %>
 <!DOCTYPE html>
 <html>

@@ -4,6 +4,8 @@
     Author     : Jorge
 --%>
 
+<%@page import="com.as.practica2.singleton.StadisticsBean"%>
+<%@page import="com.as.practica2.singleton.LogBean"%>
 <%@page import="com.as.practica2.stateful.UserBean"%>
 <%@page import="com.as.practica2.stateful.ClientBean"%>
 <%@page import="com.as.practica2.stateless.CalculateDniLetter"%>
@@ -29,11 +31,17 @@
             session.setAttribute("clientList", clientStatBean);
             ClientBean clientList = (ClientBean) session.getAttribute("clientList");
 
-            clientList.addClient(new Client("00000000", "Jorge", "Fernandez", "555-555-555"));
-            clientList.addClient(new Client("11111111", "Pedro", "Cabrera", "555-555-444"));
+            clientList.addClient(new Client("00000000", "Jorge", "Fernandez", "555-555-555"), (String) session.getAttribute("user"));
+            clientList.addClient(new Client("11111111", "Pedro", "Cabrera", "555-555-444"), (String) session.getAttribute("user"));
         } catch (NamingException ex) {
         }
     }
+
+    LogBean logBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/LogBean");
+    logBean.addFuntion("main.jsp");
+
+    StadisticsBean estadisticasBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/StadisticsBean");
+    estadisticasBean.addPage("main.jsp");
 %>
 <jsp:include page="headerA.jsp"/>
 <!DOCTYPE html>
@@ -69,10 +77,9 @@
             out.print("<TR><TD colspan='6'>LISTADO DE CLIENTES</TD></TR>");
             out.print("<TR><TH><B>Dni</B></TH><TH><B>Nombre</B></TH><TH><B>Apellido</B></TH><TH><B>Teléfono</B></TH><TH><B>Ficha</B></TH><TH><B>Eliminar</B></TH></TR>");
 
-            for (Client elem : clientList.getClientList()) {
-
+            for (Client elem : clientList.getClientList((String) session.getAttribute("user"))) {
                 out.print("<TR>");
-                out.print("<TD>" + elem.getId() + " " + calculateDniLetter.getDniLetter(elem.getId()) + "</TD>");
+                out.print("<TD>" + elem.getId() + " " + calculateDniLetter.getDniLetter(elem.getId(), (String) session.getAttribute("user")) + "</TD>");
                 out.print("<TD>" + elem.getName() + "</TD>");
                 out.print("<TD>" + elem.getSurame() + "</TD>");
                 out.print("<TD>" + elem.getTelephone() + "</TD>");

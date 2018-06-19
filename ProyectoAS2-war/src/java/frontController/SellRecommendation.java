@@ -14,12 +14,12 @@ import javax.servlet.ServletException;
  *
  * @author Jorge
  */
-public class SellRecomendation extends FrontCommand {
+public class SellRecommendation extends FrontCommand {
 
     @Override
     public void process() {
         try {
-            forward("/sellRecomendation.jsp");
+            forward("/sellRecommendation.jsp");
         } catch (ServletException | IOException ex) {
             Logger.getLogger(UnknownCommand.class.getName()).log(Level.SEVERE, null, ex);
         }

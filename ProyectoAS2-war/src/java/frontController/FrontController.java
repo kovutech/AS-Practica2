@@ -5,10 +5,13 @@ package frontController;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import com.as.practica2.singleton.StadisticsBean;
+import com.as.practica2.singleton.LogBean;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.ejb.EJB;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -23,6 +26,12 @@ import javax.servlet.http.HttpSession;
 @WebServlet(urlPatterns = {"/FrontController"})
 public class FrontController extends HttpServlet {
 
+    @EJB
+    LogBean log;
+    
+    @EJB
+    StadisticsBean estadisticas;
+    
     private FrontCommand getCommand(HttpServletRequest req) {
         try {
             FrontCommand f = (FrontCommand) getCommandClass(req).newInstance();
@@ -55,6 +64,11 @@ public class FrontController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        
+        log.addFuntion("processRequest");
+        
+        estadisticas.addComponent("processRequest");
+        
         HttpSession session = request.getSession(true);
         if (session.getAttribute("user") == null) {
             String userName = request.getParameter("user");

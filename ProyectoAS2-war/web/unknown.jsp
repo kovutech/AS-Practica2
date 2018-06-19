@@ -4,7 +4,18 @@
     Author     : Jorge
 --%>
 
+<%@page import="com.as.practica2.singleton.StadisticsBean"%>
+<%@page import="javax.naming.InitialContext"%>
+<%@page import="com.as.practica2.singleton.LogBean"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
+<%
+        LogBean logBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/LogBean");
+    logBean.addFuntion("unknow.jsp");
+
+    StadisticsBean estadisticasBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/StadisticsBean");
+    estadisticasBean.addPage("unknown.jsp");
+    %>
 <!DOCTYPE html>
 <html>
     <head>
