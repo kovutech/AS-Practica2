@@ -8,7 +8,6 @@ package com.as.practica2.stateful;
 import com.as.practica2.object.Policy;
 import com.as.practica2.singleton.LogBean;
 import com.as.practica2.singleton.StadisticsBean;
-//import com.as.practica2.stateful.PolicyBean;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;

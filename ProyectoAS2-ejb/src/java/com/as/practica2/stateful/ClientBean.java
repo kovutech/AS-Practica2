@@ -6,15 +6,17 @@
 package com.as.practica2.stateful;
 
 import com.as.practica2.object.Client;
+import com.as.practica2.object.Policy;
 import com.as.practica2.singleton.LogBean;
 import com.as.practica2.singleton.StadisticsBean;
-import com.as.practica2.stateful.ClientBean;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
@@ -37,8 +39,8 @@ public class ClientBean {
     private boolean print = false;
     private LogBean log;
     private StadisticsBean stadistics;
-
-    List<Client> client = new ArrayList<Client>();
+    Map<String, List<Client>> client = new HashMap<String, List<Client>>();
+    //List<Client> client = new ArrayList<Client>();
 
     @PostConstruct
     public void ClientBean() {
@@ -65,7 +67,15 @@ public class ClientBean {
         log.addFuntion("ClientBean::addClient");
         stadistics.addComponent("ClientBean");
         setText("ClientBean", "addClient", user);
-        client.add(clientAux);
+        //client.add(clientAux);
+        List<Client> aux;
+        if (client.containsKey(user)) {
+            aux = client.get(user);
+        } else {
+            aux = new ArrayList<Client>();
+        }
+        aux.add(clientAux);
+        client.put(user, aux);
     }
 
     public void deleteClient(String id, String user) {
@@ -73,11 +83,21 @@ public class ClientBean {
         log.addFuntion("ClientBean::deleteClient");
         stadistics.addComponent("ClientBean");
         setText("ClientBean", "deleteClient", user);
-        for (int i = 0; i < client.size(); i++) {
-            if (client.get(i).getId().equals(id)) {
-                client.remove(i);
+        
+        List<Client> aux = new ArrayList<Client>();
+        aux = client.get(id);
+        for (int i = 0; i < aux.size(); i++) {
+            if (aux.get(i).getId().equals(id)) {
+                aux.remove(i);
             }
         }
+        client.put(id, aux);
+        
+//        for (int i = 0; i < client.size(); i++) {
+//            if (client.get(i).getId().equals(id)) {
+//                client.remove(i);
+//            }
+//        }
     }
 
     public List<Client> getClientList(String user) {
@@ -85,7 +105,16 @@ public class ClientBean {
         log.addFuntion("ClientBean::getClientList");
         stadistics.addComponent("ClientBean");
         setText("ClientBean", "getClientList", user);
-        return client;
+        
+        List<Client> aux;
+        if (client.containsKey(user)) {
+            aux = client.get(user);
+        } else {
+            aux = new ArrayList<Client>();
+        }
+        return aux;
+        
+        //return client;
     }
     
     public void setText(String clase, String metodo, String usuario) {
