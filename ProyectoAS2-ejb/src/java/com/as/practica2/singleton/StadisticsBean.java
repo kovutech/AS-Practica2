@@ -29,7 +29,7 @@ public class StadisticsBean {
     private Map<String, Integer> contadorPages;
     private Map<String, Integer> contadorComponents;
     private Map<String, Integer> contadorComponentUsers;
-    
+
     private TimerBean1 timer1;
 
     @PostConstruct
@@ -43,17 +43,16 @@ public class StadisticsBean {
         } catch (NamingException ex) {
             Logger.getLogger(StadisticsBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
     }
-    
+
     @PreDestroy
-    public void preDestroy(){
+    public void preDestroy() {
         users = 0;
         contadorPages = new HashMap<>();
         contadorComponents = new HashMap<>();
-        
+
     }
-    
+
     public Map<String, Integer> getComponentUsers() {
         timer1.count("EstadisticasBean");
         return contadorComponentUsers;
@@ -66,45 +65,45 @@ public class StadisticsBean {
 
     public Map<String, Integer> getComponentCount() {
         timer1.count("EstadisticasBean");
-        return  contadorComponents;
+        return contadorComponents;
     }
-    
+
     //Guarda una pagina y su cuenta
-    public void addPage(String page){
+    public void addPage(String page) {
         timer1.count("EstadisticasBean");
-        if(contadorPages.containsKey(page)){
-            contadorPages.put(page, contadorPages.get(page)+1);
-        }else{
+        if (contadorPages.containsKey(page)) {
+            contadorPages.put(page, contadorPages.get(page) + 1);
+        } else {
             contadorPages.put(page, 1);
         }
     }
-    
+
     //Guarda el usuario y el numero de componentes que visita
-    public void addComponentUsers(String user){
+    public void addComponentUsers(String user) {
         timer1.count("EstadisticasBean");
-        if(contadorComponentUsers.containsKey(user)){
-            contadorComponentUsers.put(user, contadorComponentUsers.get(user)+1);
-        }else{
+        if (contadorComponentUsers.containsKey(user)) {
+            contadorComponentUsers.put(user, contadorComponentUsers.get(user) + 1);
+        } else {
             contadorComponentUsers.put(user, 1);
         }
     }
-    
+
     //Guarda un componente y su cuenta
-    public void addComponent(String page){
+    public void addComponent(String page) {
         timer1.count("EstadisticasBean");
-        if(contadorComponents.containsKey(page)){
-            contadorComponents.put(page, contadorComponents.get(page)+1);
-        }else{
+        if (contadorComponents.containsKey(page)) {
+            contadorComponents.put(page, contadorComponents.get(page) + 1);
+        } else {
             contadorComponents.put(page, 1);
         }
     }
-        
-    public void addUser(){
+
+    public void addUser() {
         timer1.count("EstadisticasBean");
-        users=users+1;
+        users += 1;
     }
-    
-    public int getUsers(){
+
+    public int getUsers() {
         timer1.count("EstadisticasBean");
         return users;
     }

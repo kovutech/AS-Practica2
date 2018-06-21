@@ -120,7 +120,7 @@
 
         %>
         <FORM action='FrontController'>
-            <INPUT type='hidden' name='command' value='ToPolicies'>
+            <INPUT type='hidden' name='command' value='Policies'>
             <INPUT type='submit' value='Volver' class='boton'>
         </FORM>
         <jsp:include page="footer.jsp"/>

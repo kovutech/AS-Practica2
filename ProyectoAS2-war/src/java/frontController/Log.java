@@ -14,14 +14,15 @@ import javax.servlet.ServletException;
  *
  * @author Jorge
  */
-public class ToPolicies extends FrontCommand {
+public class Log extends FrontCommand {
+
     @Override
     public void process() {
         try {
-            forward("/policies.jsp");
+            forward("/log.jsp");
         } catch (ServletException | IOException ex) {
             Logger.getLogger(UnknownCommand.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-}
 
+}

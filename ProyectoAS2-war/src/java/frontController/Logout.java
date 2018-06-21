@@ -11,12 +11,12 @@ import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpSession;
 
-
 /**
  *
  * @author Jorge
  */
 public class Logout extends FrontCommand {
+
     @Override
     public void process() {
         try {

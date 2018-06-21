@@ -83,9 +83,9 @@ public class ClientBean {
         log.addFuntion("ClientBean::deleteClient");
         stadistics.addComponent("ClientBean");
         setText("ClientBean", "deleteClient", user);
-        
+
         List<Client> aux = new ArrayList<Client>();
-        aux =  getClientList(user);
+        aux = getClientList(user);
         for (int i = 0; i < aux.size(); i++) {
             if (aux.get(i).getId().equals(id)) {
                 aux.remove(i);
@@ -93,7 +93,7 @@ public class ClientBean {
             }
         }
         client.put(user, aux);
-        
+
 //        for (int i = 0; i < client.size(); i++) {
 //            if (client.get(i).getId().equals(id)) {
 //                client.remove(i);
@@ -106,7 +106,7 @@ public class ClientBean {
         log.addFuntion("ClientBean::getClientList");
         stadistics.addComponent("ClientBean");
         setText("ClientBean", "getClientList", user);
-        
+
         List<Client> aux;
         if (client.containsKey(user)) {
             aux = client.get(user);
@@ -114,10 +114,10 @@ public class ClientBean {
             aux = new ArrayList<Client>();
         }
         return aux;
-        
+
         //return client;
     }
-    
+
     public void setText(String clase, String metodo, String usuario) {
         if (print) {
             try {

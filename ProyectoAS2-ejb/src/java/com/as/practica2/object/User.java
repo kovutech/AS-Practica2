@@ -10,6 +10,7 @@ package com.as.practica2.object;
  * @author Jorge
  */
 public class User {
+
     String user;
     String pass;
     String email;
@@ -43,5 +44,5 @@ public class User {
     public void setEmail(String email) {
         this.email = email;
     }
-    
+
 }

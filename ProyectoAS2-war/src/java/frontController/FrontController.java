@@ -28,10 +28,10 @@ public class FrontController extends HttpServlet {
 
     @EJB
     LogBean log;
-    
+
     @EJB
     StadisticsBean estadisticas;
-    
+
     private FrontCommand getCommand(HttpServletRequest req) {
         try {
             FrontCommand f = (FrontCommand) getCommandClass(req).newInstance();
@@ -64,11 +64,11 @@ public class FrontController extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
         log.addFuntion("processRequest");
-        
+
         estadisticas.addComponent("processRequest");
-        
+
         HttpSession session = request.getSession(true);
         if (session.getAttribute("user") == null) {
             String userName = request.getParameter("user");

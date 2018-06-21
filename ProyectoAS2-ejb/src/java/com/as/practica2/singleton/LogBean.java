@@ -27,8 +27,7 @@ public class LogBean {
 
     private List<String> traza;
     private TimerBean1 timer1;
-    
-    
+
     @PostConstruct
     public void init() {
         traza = new ArrayList<>();
@@ -37,26 +36,26 @@ public class LogBean {
         } catch (NamingException ex) {
             Logger.getLogger(LogBean.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
     }
-    
-    public void addFuntion(String ristra){
+
+    public void addFuntion(String ristra) {
         timer1.count("LogBean");
         traza.add(ristra);
     }
 
     public List<String> getTraza() {
-       timer1.count("LogBean");
+        timer1.count("LogBean");
         return traza;
     }
-    
-    public List<String> getTrazaTimer(){
+
+    public List<String> getTrazaTimer() {
         return traza;
     }
-    
+
     @PreDestroy
-    public void preDestroy(){
+    public void preDestroy() {
         traza.clear();
     }
-    
+
 }

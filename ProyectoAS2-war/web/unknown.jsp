@@ -15,7 +15,7 @@
 
     StadisticsBean estadisticasBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/StadisticsBean");
     estadisticasBean.addPage("unknown.jsp");
-    %>
+%>
 <!DOCTYPE html>
 <html>
     <head>

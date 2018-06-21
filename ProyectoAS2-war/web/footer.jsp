@@ -5,9 +5,26 @@
 --%>
 
 <div class='footer'>
-    <table border='1' class="datosFooter" align="center">
+    <table border='0' class="footerTable" align="center">
         <tr>
-            <td>Asignatura:</td><td>Arquitectura del Software</td><td>Alumno:</td><td>Jorge Fernández Molines</td>
+            <th>Asignatura</th>
+            <th>Alumno</th>
+            <td rowspan="2">
+                <FORM action='FrontController'>
+                    <INPUT type='hidden' name='command' value='Stadistics'>
+                    <INPUT type='submit' value='Estadisticas' class='boton'>
+                </FORM>
+            </td>
+            <td rowspan="2">
+                <FORM action='FrontController'>
+                    <INPUT type='hidden' name='command' value='Log'>
+                    <INPUT type='submit' value='Log' class='boton'>
+                </FORM>
+            </td>
+        </tr>
+        <tr>
+            <td>Arquitectura del Software</td>
+            <td>Jorge Fernández Molines</td>
         </tr>
     </table>
 </div>

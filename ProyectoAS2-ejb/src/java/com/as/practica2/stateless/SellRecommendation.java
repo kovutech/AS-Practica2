@@ -23,7 +23,7 @@ import javax.naming.NamingException;
 @Stateless
 @LocalBean
 public class SellRecommendation {
-   
+
     private File file;
     private PrintWriter writing;
     private FileWriter fWritting;
@@ -72,7 +72,7 @@ public class SellRecommendation {
         }
         return auxTypesInsurances;
     }
-    
+
     public void setText(String clase, String metodo, String usuario) {
         if (print) {
             try {

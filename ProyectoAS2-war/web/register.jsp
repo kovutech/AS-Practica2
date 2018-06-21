@@ -15,9 +15,9 @@
     logBean.addFuntion("register.jsp");
 
     StadisticsBean estadisticasBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/StadisticsBean");
-    estadisticasBean.addPage("register.jsp");    
+    estadisticasBean.addPage("register.jsp");
 
-    %>
+%>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">

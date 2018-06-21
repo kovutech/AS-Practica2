@@ -11,10 +11,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Torniquete Seguros s.a.</title>
+    <title>Seguros lorem ipsun s.a.</title>
 </head>
 <body>
     <div class="header">
-        <h1 class="title">Torniquete seguros s.a.</h1>
+        <h1 class="title">Seguros lorem ipsun s.a.</h1>
     </div>
 </body>

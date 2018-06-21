@@ -24,7 +24,7 @@ public class Main extends FrontCommand {
         if (request.getParameter("addClient") != null) {
             HttpSession session = request.getSession(true);
             ClientBean clientList = (ClientBean) session.getAttribute("clientList");
-            clientList.addClient(new Client(request.getParameter("dni"), request.getParameter("nombre"), request.getParameter("apellido"), request.getParameter("telefono")),(String) session.getAttribute("user"));
+            clientList.addClient(new Client(request.getParameter("dni"), request.getParameter("nombre"), request.getParameter("apellido"), request.getParameter("telefono")), (String) session.getAttribute("user"));
             session.setAttribute("clientList", clientList);
         }
     }
@@ -34,7 +34,7 @@ public class Main extends FrontCommand {
         if (request.getParameter("deleteClient") != null) {
             HttpSession session = request.getSession(true);
             ClientBean clientList = (ClientBean) session.getAttribute("clientList");
-            clientList.deleteClient(request.getParameter("deleteClient"),(String) session.getAttribute("user"));
+            clientList.deleteClient(request.getParameter("deleteClient"), (String) session.getAttribute("user"));
             session.setAttribute("clientList", clientList);
         }
     }

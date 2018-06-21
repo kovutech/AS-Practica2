@@ -37,7 +37,7 @@ public class ClientLevel {
     private boolean print = false;
     private LogBean log;
     private StadisticsBean stadistics;
-    
+
     @PostConstruct
     public void ClientLevel() {
         try {
@@ -74,7 +74,7 @@ public class ClientLevel {
         }
         return "Sin pólizas";
     }
-    
+
     public void setText(String clase, String metodo, String usuario) {
         if (print) {
             try {
@@ -131,6 +131,5 @@ public class ClientLevel {
             Logger.getLogger(ClientLevel.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
+
 }

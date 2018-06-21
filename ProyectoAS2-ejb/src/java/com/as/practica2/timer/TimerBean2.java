@@ -5,8 +5,6 @@ package com.as.practica2.timer;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
-
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -36,17 +34,18 @@ import com.as.practica2.singleton.LogBean;
 @Singleton
 @LocalBean
 public class TimerBean2 {
+
     private File document;
     private PrintWriter escritura;
     private FileWriter dEscritura;
-    
+
     private LogBean log;
-  
+
     @Resource
     TimerService timerService;
-    
+
     @PostConstruct
-    public void init(){
+    public void init() {
         try {
             log = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/LogBean");
             timerService.createSingleActionTimer(5000, new TimerConfig());
@@ -55,27 +54,24 @@ public class TimerBean2 {
         }
     }
 
-    
     @Timeout
-    public void timeout(Timer timer){
+    public void timeout(Timer timer) {
         setText();
-        timer= timerService.createSingleActionTimer(5000, new TimerConfig());
+        timer = timerService.createSingleActionTimer(5000, new TimerConfig());
     }
-    
-    public void setText(){
+
+    public void setText() {
         try {
             String ruta = "C:\\Users\\Jorge\\Desktop\\AS\\Practica2\\contenidoLogBean.txt";
             File fichero = new File(ruta);
             fichero.delete();
-            
-            
-            
+
             document = new File("C:\\Users\\Jorge\\Desktop\\AS\\Practica2\\contenidoLogBean.txt");
             dEscritura = new FileWriter(document, true);
             escritura = new PrintWriter(dEscritura);
-            
+
             List<String> mensajes = log.getTrazaTimer();
-            for(String t : mensajes){
+            for (String t : mensajes) {
                 String mensaje = t;
                 escritura.println(mensaje);
             }
@@ -85,14 +81,14 @@ public class TimerBean2 {
             Logger.getLogger(TimerBean2.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    @Schedule(second="*/5", minute="*",hour="*")
-    public void sheduleTimer(){
-       
+
+    @Schedule(second = "*/5", minute = "*", hour = "*")
+    public void sheduleTimer() {
+
     }
-   
+
     @PreDestroy
-    public void remove(){
+    public void remove() {
         try {
             dEscritura.close();
             escritura.close();

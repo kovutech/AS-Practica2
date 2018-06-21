@@ -27,7 +27,7 @@ public class Policies extends FrontCommand {
             HttpSession session = request.getSession(true);
             List<String> clientData = (List<String>) session.getAttribute("clientData");
             PolicyBean policyList = (PolicyBean) session.getAttribute("policyList");
-            policyList.addPolicy(clientData.get(2), new Policy(request.getParameter("id"), request.getParameter("type"), request.getParameter("from"), request.getParameter("to"), request.getParameter("payRange"), request.getParameter("price")),(String) session.getAttribute("user"));
+            policyList.addPolicy(clientData.get(2), new Policy(request.getParameter("id"), request.getParameter("type"), request.getParameter("from"), request.getParameter("to"), request.getParameter("payRange"), request.getParameter("price")), (String) session.getAttribute("user"));
             session.setAttribute("policyList", policyList);
         }
     }

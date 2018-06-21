@@ -10,6 +10,7 @@ package com.as.practica2.object;
  * @author Jorge
  */
 public class Receipt {
+
     String reference;
     String date;
     String amount;
@@ -53,6 +54,5 @@ public class Receipt {
     public void setPaid(boolean paid) {
         this.paid = paid;
     }
-    
-    
+
 }

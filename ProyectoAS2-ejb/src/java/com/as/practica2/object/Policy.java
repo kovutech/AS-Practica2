@@ -9,7 +9,6 @@ package com.as.practica2.object;
  *
  * @author Jorge
  */
-
 public class Policy {
 
     String id;
@@ -75,5 +74,5 @@ public class Policy {
     public void setPrice(String price) {
         this.price = price;
     }
-    
+
 }
