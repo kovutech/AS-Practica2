@@ -38,15 +38,18 @@ public class Receipts extends FrontCommand {
     public void chargeReceipt() {
         if (request.getParameter("charged") != null) {
             HttpSession session = request.getSession(true);
-            List<String> clientData = (List<String>) session.getAttribute("clientData");
+            String user = (String) session.getAttribute("user");
             ReceiptBean receiptList = (ReceiptBean) session.getAttribute("receiptList");
             String currentPolicy = (String) session.getAttribute("currentPolicy");
-            List<Receipt> receipts = receiptList.getReceiptList(currentPolicy, clientData.get(2));
-            receipts.get(Integer.valueOf(request.getParameter("order"))).setPaid(true);
-            Map<String,List<Receipt>> map = receiptList.getMap();
-            map.put(currentPolicy, receipts);
-            receiptList.setMap(map);
+            receiptList.setMap(receiptList.receiptPaid(currentPolicy, Integer.valueOf(request.getParameter("order")), user));
             session.setAttribute("receiptList", receiptList);
+
+//            List<Receipt> receipts = receiptList.getReceiptList(currentPolicy, clientData.get(2));
+//            receipts.get(Integer.valueOf(request.getParameter("order"))).setPaid(true);
+//            Map<String,List<Receipt>> map = receiptList.getMap();
+//            map.put(currentPolicy, receipts);
+//            receiptList.setMap(map);
+//            session.setAttribute("receiptList", receiptList);
         }
     }
 

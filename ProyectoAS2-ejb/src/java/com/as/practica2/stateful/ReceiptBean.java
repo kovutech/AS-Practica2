@@ -28,6 +28,7 @@ import javax.ejb.Remove;
 import javax.ejb.Stateful;
 import javax.naming.InitialContext;
 import javax.naming.NamingException;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -66,19 +67,15 @@ public class ReceiptBean {
         }
     }
 
-    public void receiptPaid(String id, String user) {
+    public Map<String, List<Receipt>> receiptPaid(String currentPolicy, int order, String user) {
         stadistics.addComponentUsers(user);
         log.addFuntion("ReceiptBean::receiptPaid");
         stadistics.addComponent("ReceiptBean");
         setText("ReceiptBean", "receiptPaid", user);
-        List<Receipt> aux;
-        if (map.containsKey(id)) {
-            aux = map.get(id);
-        } else {
-            aux = new ArrayList<Receipt>();
-        }
-        aux.get(2).setPaid(true);
-        map.put(id, aux);
+        List<Receipt> receipts = getReceiptList(currentPolicy, user);
+        receipts.get(order).setPaid(true);
+        map.put(currentPolicy, receipts);
+        return map;
     }
 
     public void addReceipt(String id, Receipt receiptAux, String user) {
@@ -121,7 +118,7 @@ public class ReceiptBean {
     public void setText(String clase, String metodo, String usuario) {
         if (print) {
             try {
-                file = new File("C:\\Users\\Jorge\\Desktop\\AS\\Practica2\\stateful2.txt");
+                file = new File("C:\\Users\\Jorge\\Desktop\\AS\\Practica2\\stateful4.txt");
                 fWritting = new FileWriter(file, true);
                 writing = new PrintWriter(fWritting);
                 String mensaje = clase + "::" + metodo + "::" + usuario;
