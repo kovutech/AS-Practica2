@@ -85,13 +85,14 @@ public class ClientBean {
         setText("ClientBean", "deleteClient", user);
         
         List<Client> aux = new ArrayList<Client>();
-        aux = client.get(id);
+        aux =  getClientList(user);
         for (int i = 0; i < aux.size(); i++) {
             if (aux.get(i).getId().equals(id)) {
                 aux.remove(i);
+                break;
             }
         }
-        client.put(id, aux);
+        client.put(user, aux);
         
 //        for (int i = 0; i < client.size(); i++) {
 //            if (client.get(i).getId().equals(id)) {

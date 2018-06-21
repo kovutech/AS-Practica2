@@ -39,7 +39,6 @@
 
             session.setAttribute("receiptList", receiptList);
         } catch (NamingException ex) {
-            System.out.println("ERROR GOLDO");
         }
     }
     LogBean logBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/LogBean");
@@ -70,7 +69,7 @@
                 <TD><INPUT type='date' name='date' value='' placeholder='F. efecto' ></TD>
                 <TD><INPUT type='number' name='amount' value='' placeholder='Importe' step='any' min='0'></TD>
                 <TD> <select name="paid">
-                        <option value="true">Pagado</option>
+                        <option value="true">Cobrado</option>
                         <option value="false">Pendiente</option>
                     </select> </TD>                
                 <TD><INPUT type='submit' value='Añadir' class='botonTable'></TD>
@@ -101,24 +100,27 @@
             out.print("<TABLE border=1 class='center'>");
             out.print("<TR><TD colspan='7'>LISTADO DE RECIBOS</TD></TR>");
             out.print("<TR><TD>Referencia</TD><TD>F. efecto</TD><TD>Importe</TD><TD>Estado</TD><TD>Cobrar</TD></TR>");
+            int count = 0;
             for (Receipt elem : receipts) {
                 out.print("<TR>");
                 out.print("<TD>" + elem.getReference() + "</TD>");
                 out.print("<TD>" + elem.getDate() + "</TD>");
                 out.print("<TD>" + elem.getAmount() + "</TD>");
                 if (elem.isPaid()) {
-                    out.print("<TD>Pagado</TD>");
+                    out.print("<TD>Cobrado</TD>");
+                    out.print("<TD></TD>");
                 } else {
                     out.print("<TD>Pendiente</TD>");
+                    out.print("<TD><FORM action='FrontController'><INPUT type='hidden' name='command' value='Receipts'><INPUT type='hidden' name='order' value=" + count + "><INPUT type='hidden' name='charged' value=" + elem.getReference() + "><INPUT type='submit' value='Cobrado' class='botonTable'></FORM>");
                 }
-                out.print("<TD><FORM action='FrontController'><INPUT type='hidden' name='command' value='Receipts'><INPUT type='hidden' name='charged' value=" + elem.getReference() + "><INPUT type='submit' value='Cobrado' class='botonTable'></FORM>");
+                count += 1;
                 out.print("</TR>");
             }
             out.print("</TABLE><BR>");
 
         %>
         <FORM action='FrontController'>
-            <INPUT type='hidden' name='command' value='ToMain'>
+            <INPUT type='hidden' name='command' value='ToPolicies'>
             <INPUT type='submit' value='Volver' class='boton'>
         </FORM>
         <jsp:include page="footer.jsp"/>

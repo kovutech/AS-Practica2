@@ -7,21 +7,22 @@
 <%@page import="javax.naming.InitialContext"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Torniquete Seguros s.a.</title>
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <title>Torniquete Seguros s.a.</title>
+</head>
+<body>
+    <div class="header">
         <h1 class="title">Torniquete seguros s.a.</h1>
+        <FORM action='FrontController'>
+            <INPUT type='hidden' name='command' value='Logout'>
+            <INPUT type='submit' value='Cerrar sesión' class='botonLogout'>
+        </FORM><BR>
         <%
-            out.print("<FORM action='FrontController'>");
-            out.print("<INPUT type='hidden' name='command' value='Logout'>");
-            out.print("<INPUT type='submit' value='Cerrar sesión' class='botonLogout'>");
-            out.print("</FORM><BR>");
-
             String user = (String) session.getAttribute("user");
             out.print("<h3>Agente: " + user + "</h3>");
         %>
-    </body>
-</html>
+    </div>
+</body>

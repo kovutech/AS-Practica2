@@ -36,15 +36,16 @@ import javax.naming.NamingException;
 @Stateful
 @LocalBean
 public class ReceiptBean {
+
     private File file;
     private PrintWriter writing;
     private FileWriter fWritting;
     private boolean print = false;
     private LogBean log;
     private StadisticsBean stadistics;
-    
+
     Map<String, List<Receipt>> map = new HashMap<String, List<Receipt>>();
-    
+
     @PostConstruct
     public void ReceiptBean() {
         try {
@@ -64,8 +65,7 @@ public class ReceiptBean {
             Logger.getLogger(ReceiptBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-   
-    
+
     public void receiptPaid(String id, String user) {
         stadistics.addComponentUsers(user);
         log.addFuntion("ReceiptBean::receiptPaid");
@@ -78,10 +78,9 @@ public class ReceiptBean {
             aux = new ArrayList<Receipt>();
         }
         aux.get(2).setPaid(true);
-        System.out.println(aux.get(2).isPaid());
         map.put(id, aux);
     }
-    
+
     public void addReceipt(String id, Receipt receiptAux, String user) {
         stadistics.addComponentUsers(user);
         log.addFuntion("ReceiptBean::addReceipt");
@@ -96,7 +95,7 @@ public class ReceiptBean {
         aux.add(receiptAux);
         map.put(id, aux);
     }
-    
+
     public List<Receipt> getReceiptList(String id, String user) {
         stadistics.addComponentUsers(user);
         log.addFuntion("ReceiptBean::getReceiptList");
@@ -110,7 +109,15 @@ public class ReceiptBean {
         }
         return aux;
     }
-    
+
+    public Map<String, List<Receipt>> getMap() {
+        return map;
+    }
+
+    public void setMap(Map<String, List<Receipt>> aux) {
+        map = aux;
+    }
+
     public void setText(String clase, String metodo, String usuario) {
         if (print) {
             try {
@@ -167,5 +174,5 @@ public class ReceiptBean {
             Logger.getLogger(ReceiptBean.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+
 }

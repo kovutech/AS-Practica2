@@ -1,6 +1,11 @@
+html{
+    position:relative;
+    min-height: 100%;
+}
+
 body {
-    text-align: left;
-    background-color: dimgrey;
+    margin-bottom: 90px;
+    margin-top: 300px;
     color: white;
     background-image:  url("./img/fondo.jpg");
 }
@@ -26,25 +31,23 @@ table.insurance {
 }
 
 .footer {
-   margin-left: auto;
-   margin-right: auto;
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   height:px;
-   width:100%;
-   background:#888888;
+    position:fixed;
+    bottom: 0;
+    width:99%;
+    height: 60px;
+    background:#888888;
+    padding-top: 10px;
+
 }
 
 .header{
-       margin-left: auto;
-   margin-right: auto;
-   position:fixed;
-   left:0px;
-   bottom:0px;
-   height:px;
-   width:100%;
-   background:#888888;
+    position:fixed;
+    top: 0;
+    width:99%;
+    height: 100px;
+    padding-top: 10px;
+    z-index:1;
+    background: blue;
 }
 
 .title {

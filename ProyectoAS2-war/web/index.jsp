@@ -29,36 +29,29 @@
         } catch (NamingException ex) {
         }
     }
-    
+
     LogBean logBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/LogBean");
     logBean.addFuntion("index.jsp");
 
     StadisticsBean estadisticasBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/StadisticsBean");
     estadisticasBean.addPage("index.jsp");
 %>
+<jsp:include page="headerB.jsp"/>
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" type="text/css" href="style.css">
-    </head>
-    <body>
-        <h1 class="title">Torniquete seguros s.a.</h1><br>
-        <div class="box">
-            <form action="FrontController" method='post' class="contenedorCentrado">
-                <h1>Agente</h1>
-                <input type="text" name="user" placeholder="User" class="inputText" required/><br><br>
-                <input type="password" name="pass" placeholder="Password" class="inputText" required/><br><br>
-                <input type="hidden" name="command" value="Main">
-                <input type="hidden" name="login" value="1">
-                <input type="submit" value="Login" class="boton"/>
-            </form>
-            <form action="FrontController" method='post'>
-                <input type="hidden" name="command" value="ToRegister">
-                <input type="submit" name="Registro" value="Registro" class='boton'>
-            </form>
-        </div>
-    </body>
-</html>
+<body>
+    <div class="box">
+        <form action="FrontController" method='post' class="contenedorCentrado">
+            <h1>Agente</h1>
+            <input type="text" name="user" placeholder="User" class="inputText" required/><br><br>
+            <input type="password" name="pass" placeholder="Password" class="inputText" required/><br><br>
+            <input type="hidden" name="command" value="Main">
+            <input type="hidden" name="login" value="1">
+            <input type="submit" value="Login" class="boton"/>
+        </form>
+        <form action="FrontController" method='post'>
+            <input type="hidden" name="command" value="ToRegister">
+            <input type="submit" name="Registro" value="Registro" class='boton'>
+        </form>
+    </div>
+</body>
+<jsp:include page="footer.jsp"/>

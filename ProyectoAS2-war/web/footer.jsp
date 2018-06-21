@@ -4,19 +4,10 @@
     Author     : Jorge
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
-    <body>
-        <div class='footer'>
-            <table border='1'>
-                <tr>
-                    <td>Asignatura:</td><td>Arquitectura del Software</td><td>Alumno:</td><td>Jorge Fern√°ndez Molines</td>
-                </tr>
-                <tr>
-                    
-                </tr>
-        </div>
-
-    </body>
-</html>
+<div class='footer'>
+    <table border='1' class="datosFooter" align="center">
+        <tr>
+            <td>Asignatura:</td><td>Arquitectura del Software</td><td>Alumno:</td><td>Jorge Fern·ndez Molines</td>
+        </tr>
+    </table>
+</div>
