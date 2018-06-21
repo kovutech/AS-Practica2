@@ -94,6 +94,12 @@ public class UserBean {
         } else {
             return false;
         }
+        try {
+            StadisticsBean stadisticsBean = InitialContext.doLookup("java:global/ProyectoAS2/ProyectoAS2-ejb/StadisticsBean");
+            stadisticsBean.addUser();
+        } catch (NamingException ex) {
+            Logger.getLogger(UserBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
         return true;
     }
 

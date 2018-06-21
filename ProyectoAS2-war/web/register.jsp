@@ -27,12 +27,13 @@
     <jsp:include page="headerB.jsp"/>
     <body>
         <FORM action='FrontController' method='post'>
-            <TABLE border=1 class='center'>
+            <TABLE border=1 class='register'>
                 <TR><TH>REGISTRO</TH></TR>
                 <TR><TD><INPUT type='text' name='user' value='' minlength='5' placeholder='Usuario' required='true'></TD></TR>
                 <TR><TD><INPUT type='pass' name='pass' value='' minlength='5' placeholder='Contraseña' required='true'></TD></TR>
                 <TR><TD><INPUT type='text' name='email' value='' minlength='5' placeholder='Email' required='true'></TD></TR>
                 <TR><TD><INPUT type='submit' value='Registrarme' class='botonTable'></TD></TR>
+                <INPUT type='hidden' name='register' value='1'>
                 <INPUT type='hidden' name='command' value='Register'>
             </TABLE>
         </FORM>

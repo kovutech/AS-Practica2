@@ -29,6 +29,15 @@ table.stadistics{
     background-color: #021E47;
 }
 
+table.register{
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 20px;
+    text-align: center;
+    width: 25%;
+    background-color: #021E47;
+}
+
 table.insurance {
     margin-left: auto;
     margin-right: auto;

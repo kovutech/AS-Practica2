@@ -48,8 +48,9 @@
             <input type="hidden" name="login" value="1">
             <input type="submit" value="Login" class="boton"/>
         </form>
+        <br>
         <form action="FrontController" method='post'>
-            <input type="hidden" name="command" value="ToRegister">
+            <input type="hidden" name="command" value="Register">
             <input type="submit" name="Registro" value="Registro" class='boton'>
         </form>
     </div>
