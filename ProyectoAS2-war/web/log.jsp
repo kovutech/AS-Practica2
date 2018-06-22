@@ -17,11 +17,10 @@
 %>
 
 <jsp:include page="headerB.jsp"/>
+
 <body>
+    <h1>Traza del log</h1>
     <table border="1" class="stadistics">
-        <tr>
-            <th>Traza del log</th>
-        </tr>
         <% List<String> traza = logBean.getTraza();
             for (String elem : traza) {
         %>

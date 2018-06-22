@@ -63,6 +63,8 @@
     out.print("</TABLE>");
 
 %>
+<br>
+<br>
 <FORM action='FrontController'>
     <INPUT type='hidden' name='command' value='Policies'>
     <INPUT type='submit' value='Volver' class='boton'>

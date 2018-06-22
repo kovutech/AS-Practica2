@@ -17,6 +17,7 @@
 %>
 <jsp:include page="headerB.jsp"/>
 <body>
+    <h1>Estadisticas</h1>
     <h2>Usuarios conectados</h2>
     <table border="1" class="stadistics">
         <tr>
