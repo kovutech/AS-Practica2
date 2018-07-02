@@ -60,7 +60,7 @@ public class ClientLevel {
 
     public String getClientLevel(int numPolicies, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("ClientLevel::getClientLevel");
+        log.addFuntion("ClientLevel::getClientLevel::" + user);
         stadistics.addComponent("ClientLevel");
         setText("ClientLevel", "getClientLevel", user);
         if (numPolicies >= 8) {

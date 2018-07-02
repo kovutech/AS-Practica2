@@ -64,7 +64,7 @@ public class ClientBean {
 
     public void addClient(Client clientAux, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("ClientBean::addClient");
+        log.addFuntion("ClientBean::addClient::" + user);
         stadistics.addComponent("ClientBean");
         setText("ClientBean", "addClient", user);
         //client.add(clientAux);
@@ -80,7 +80,7 @@ public class ClientBean {
 
     public void deleteClient(String id, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("ClientBean::deleteClient");
+        log.addFuntion("ClientBean::deleteClient::" + user);
         stadistics.addComponent("ClientBean");
         setText("ClientBean", "deleteClient", user);
 
@@ -103,7 +103,7 @@ public class ClientBean {
 
     public List<Client> getClientList(String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("ClientBean::getClientList");
+        log.addFuntion("ClientBean::getClientList::" + user);
         stadistics.addComponent("ClientBean");
         setText("ClientBean", "getClientList", user);
 

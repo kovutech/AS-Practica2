@@ -69,7 +69,7 @@ public class ReceiptBean {
 
     public Map<String, List<Receipt>> receiptPaid(String currentPolicy, int order, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("ReceiptBean::receiptPaid");
+        log.addFuntion("ReceiptBean::receiptPaid::" + user);
         stadistics.addComponent("ReceiptBean");
         setText("ReceiptBean", "receiptPaid", user);
         List<Receipt> receipts = getReceiptList(currentPolicy, user);
@@ -80,7 +80,7 @@ public class ReceiptBean {
 
     public void addReceipt(String id, Receipt receiptAux, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("ReceiptBean::addReceipt");
+        log.addFuntion("ReceiptBean::addReceipt::" + user);
         stadistics.addComponent("ReceiptBean");
         setText("ReceiptBean", "addReceipt", user);
         List<Receipt> aux;
@@ -95,7 +95,7 @@ public class ReceiptBean {
 
     public List<Receipt> getReceiptList(String id, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("ReceiptBean::getReceiptList");
+        log.addFuntion("ReceiptBean::getReceiptList::" + user);
         stadistics.addComponent("ReceiptBean");
         setText("ReceiptBean", "getReceiptList", user);
         List<Receipt> aux;

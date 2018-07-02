@@ -62,7 +62,7 @@ public class PolicyBean {
 
     public void addPolicy(String id, Policy policyAux, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("PolicyBean::addPolicy");
+        log.addFuntion("PolicyBean::addPolicy::" + user);
         stadistics.addComponent("PolicyBean");
         setText("PolicyBean", "addPolicy", user);
         List<Policy> aux;
@@ -77,7 +77,7 @@ public class PolicyBean {
 
     public void deletePolicy(String id, String PolicyId, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("PolicyBean::deletePolicy");
+        log.addFuntion("PolicyBean::deletePolicy::" + user);
         stadistics.addComponent("PolicyBean");
         setText("PolicyBean", "deletePolicy", user);
         List<Policy> aux = new ArrayList<Policy>();
@@ -92,7 +92,7 @@ public class PolicyBean {
 
     public List<Policy> getPolicyList(String id, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("PolicyBean::getPolicyList");
+        log.addFuntion("PolicyBean::getPolicyList::" + user);
         stadistics.addComponent("PolicyBean");
         setText("PolicyBean", "getPolicyList", user);
         List<Policy> aux;

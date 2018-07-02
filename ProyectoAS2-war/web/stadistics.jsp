@@ -26,11 +26,11 @@
     </table>
     <br>
     <br>
-    <h2>Componentes ejecutados</h2>
+    <h2>Componentes</h2>
     <table border="1" class='stadistics'>
         <tr>
 
-            <th>Componente</th><th>Nº de veces</th>
+            <th>Usuario</th><th>Nº de veces</th>
         </tr>
         <%
             Map<String, Integer> componentsCount = estadisticasBean.getComponentCount();
@@ -44,10 +44,10 @@
     </table>
     <br>
     <br>
-    <h2>Componentes visitados</h2>
+    <h2>Componentes visitados por usuarios</h2>
     <table border="1" class='stadistics'>
         <tr>
-            <th>Componente</th><th>Nº de veces</th>
+            <th>Usuario</th><th>Nº de veces</th>
         </tr>
         <%
             Map<String, Integer> componentsUsers = estadisticasBean.getComponentUsers();

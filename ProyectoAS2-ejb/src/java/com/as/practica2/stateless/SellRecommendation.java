@@ -53,7 +53,7 @@ public class SellRecommendation {
 
     public List<String> getRecommendation(List<String> stringPolicies, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("SellRecommendation::getRecommendation");
+        log.addFuntion("SellRecommendation::getRecommendation::" + user);
         stadistics.addComponent("SellRecommendation");
         setText("SellRecommendation", "getRecommendation", user);
         String[] allTypesInsurances = {"Accidentes", "Ahorro", "Autos", "Decesos", "Embarcaciones", "Hogar", "Motos", "Salud", "Viajes", "Vida"};

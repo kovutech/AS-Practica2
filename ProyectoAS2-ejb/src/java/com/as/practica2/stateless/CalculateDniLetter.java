@@ -60,7 +60,7 @@ public class CalculateDniLetter {
 
     public String getDniLetter(String str, String user) {
         stadistics.addComponentUsers(user);
-        log.addFuntion("CalculateDniLetter::getDniLetter");
+        log.addFuntion("CalculateDniLetter::getDniLetter::" + user);
         stadistics.addComponent("CalculateDniLetter");
         setText("CalculateDniLetter", "getDniLetter", user);
         char[] LETTERS = {'T', 'R', 'W', 'A', 'G', 'M', 'Y', 'F', 'P', 'D', 'X', 'B', 'N', 'J', 'Z', 'S', 'Q', 'V', 'H', 'L', 'C', 'K', 'E'};
